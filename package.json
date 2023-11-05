@@ -5,14 +5,19 @@
     "dev": "turbo dev",
     "lint": "turbo lint",
     "clean": "turbo clean",
-    "format": "prettier --write \"**/*.{ts,tsx,md}\""
+    "format": "prettier --write \"**/*.{ts,tsx,md}\"",
+    "db:migrate:deploy": "turbo run db:migrate:deploy",
+    "db:push": "turbo run db:push",
+    "db:seed": "turbo run db:seed",
+    "generate": "turbo run generate"
   },
   "devDependencies": {
-    "eslint": "^8.48.0",
+    "eslint": "^8.53.0",
     "prettier": "^3.0.3",
     "prettier-plugin-tailwindcss": "^0.5.6",
     "tsconfig": "*",
-    "turbo": "latest"
+    "turbo": "latest",
+    "tsx": "^3.14.0"
   },
   "packageManager": "bun@1.0.7",
   "workspaces": [

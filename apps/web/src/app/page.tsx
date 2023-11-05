@@ -1,7 +1,7 @@
 import Image from "next/image";
-import { Card } from "ui";
 import type { ReactElement } from "react";
-import { TempComponent } from "./components/TempComponent.tsx";
+import { TempComponent } from "./components/temp-component.tsx";
+import { Card } from "ui";
 
 function Gradient({
   conic,

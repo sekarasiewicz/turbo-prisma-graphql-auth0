@@ -49,3 +49,23 @@ This Turborepo has some additional tools already setup for you:
 - [TypeScript](https://www.typescriptlang.org/) for static type checking
 - [ESLint](https://eslint.org/) for code linting
 - [Prettier](https://prettier.io) for code formatting
+
+
+```bash
+npx prisma db seed
+npx prisma migrate dev --name init
+npx prisma migrate reset
+
+## Run the following command to re-generate Prisma Client and Pothos types
+npx prisma generate
+
+or ;) 
+
+bun prisma generate
+
+## Run studio
+bun prisma studio
+
+ngrok http 3000 --authtoken "1YDQGFNugOpuLIylyTkafMoo7bA_6xYj89ZEKYPM371QVVkYb"
+npx ngrok http 3000 --authtoken "1YDQGFNugOpuLIylyTkafMoo7bA_6xYj89ZEKYPM371QVVkYb"
+```

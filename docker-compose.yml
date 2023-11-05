@@ -1,0 +1,15 @@
+version: "3.7"
+
+volumes:
+  db_data:
+
+services:
+  turbo-prisma-db:
+    image: postgres
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: ${DATABASE_PASSWORD}
+    ports:
+      - "5432:5432"
+    volumes:
+      - db_data:/var/lib/postgresql/data

@@ -23,7 +23,7 @@ export function Card({
         </span>
       </h2>
       <p className="ui-m-0 ui-max-w-[30ch] ui-text-sm ui-opacity-50">
-        {children}
+        1{children}1
       </p>
     </a>
   );

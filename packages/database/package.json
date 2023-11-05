@@ -24,16 +24,19 @@
     "studio": "prisma studio"
   },
   "dependencies": {
-    "@prisma/client": "^5.5.2"
+    "@prisma/client": "^5.5.2",
+    "@pothos/core": "^3.38.0",
+    "@pothos/plugin-prisma": "^3.61.0",
+    "@pothos/plugin-relay": "^3.44.0"
   },
   "devDependencies": {
-    "eslint-config-custom": "*",
-    "eslint": "^8.52.0",
+    "config": "*",
+    "eslint": "^8.12.0",
     "prisma": "^5.5.2",
     "rimraf": "^5.0.5",
     "tsconfig": "*",
     "tsup": "^7.2.0",
-    "tsx": "^3.14.0",
+    "tsx": "^3.7.1",
     "typescript": "^5.2.2"
   }
 }
