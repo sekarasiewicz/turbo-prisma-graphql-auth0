@@ -3,6 +3,7 @@ import "ui/styles.css";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import type { ReactElement, ReactNode } from "react";
+import {PageLayout} from "./components/page-layout.tsx";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -18,7 +19,9 @@ export default function RootLayout({
 }): ReactElement {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={inter.className}>
+        <PageLayout>{children}</PageLayout>
+      </body>
     </html>
   );
 }
