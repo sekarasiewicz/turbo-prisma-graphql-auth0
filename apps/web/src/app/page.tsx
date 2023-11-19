@@ -1,7 +1,10 @@
 import Image from "next/image";
 import type { ReactElement } from "react";
+import {__DEV__} from "@apollo/client/utilities/globals";
 import { Card } from "ui";
-import { TempComponent } from "./components/temp-component.tsx";
+import { loadDevMessages, loadErrorMessages } from "@apollo/client/dev";
+import { TempComponent } from "./components/temp-component";
+import Links from "./components/links";
 
 function Gradient({
   conic,
@@ -44,6 +47,11 @@ const LINKS = [
       " Instantly deploy your Turborepo to a shareable URL with Vercel.",
   },
 ];
+
+if (__DEV__) {  // Adds messages only in a dev environment
+  loadDevMessages();
+  loadErrorMessages();
+}
 
 export default function Page(): ReactElement {
   return (
@@ -136,6 +144,7 @@ export default function Page(): ReactElement {
           </Card>
         ))}
       </div>
+      <Links />
     </main>
   );
 }

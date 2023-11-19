@@ -1,6 +1,7 @@
 import { prisma } from "database";
+import type { ReactElement } from "react";
 
-export const TempComponent = async () => {
+export const TempComponent = async (): Promise<ReactElement> => {
   const users = await prisma.user.findMany();
 
   return (
