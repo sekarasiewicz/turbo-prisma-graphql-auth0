@@ -1,4 +1,5 @@
 import { prisma } from 'database'
+
 export const resolvers = {
     Query: {
         links: () => {

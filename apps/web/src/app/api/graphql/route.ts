@@ -1,5 +1,5 @@
 import { createYoga } from 'graphql-yoga'
-import { createContext, schema } from "graphql-lib";
+import { createContext, schema } from "../../../../../../packages/graphql-config";
 import { NextResponse } from "next/server";
 
 const { handleRequest } =  createYoga({
