@@ -27,12 +27,25 @@ const AllLinksQuery = gql`
     }
 `;
 
+interface AllLinksQueryResult {
+  links: {
+    pageInfo: {
+      endCursor: string;
+      hasNextPage: boolean;
+    };
+    edges: {
+      cursor: string;
+      node: Link;
+    }[];
+  };
+}
+
 export default function Links(): ReactElement {
-  const { data, loading, error, fetchMore } = useQuery(AllLinksQuery, {
+  const { data, loading, error, fetchMore } = useQuery<AllLinksQueryResult>(AllLinksQuery, {
     variables: { first: 2 },
   });
 
-  if (loading) return <p>Loading...</p>;
+  if (loading || !data) return <p>Loading...</p>;
   if (error) return <p>Oh no... {error.message}</p>;
 
   const { endCursor, hasNextPage } = data.links.pageInfo;
@@ -40,7 +53,7 @@ export default function Links(): ReactElement {
   return (
     <div className="container mx-auto max-w-5xl my-20">
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-        {data?.links.edges.map(({ node }: { node: Link }) => (
+        {data.links.edges.map(({ node }: { node: Link }) => (
           <AwesomeLink
             category={node.category}
             description={node.description}
@@ -67,6 +80,7 @@ export default function Links(): ReactElement {
               },
             });
           }}
+          type="button"
         >
           more
         </button>
