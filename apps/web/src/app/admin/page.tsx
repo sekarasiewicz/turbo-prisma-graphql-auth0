@@ -2,7 +2,10 @@
 
 import { type SubmitHandler, useForm } from 'react-hook-form'
 import { gql, useMutation } from '@apollo/client'
+// eslint-disable-next-line import/no-named-as-default -- required for react-hot-toast
 import toast, { Toaster } from 'react-hot-toast'
+import {useUser} from "@auth0/nextjs-auth0/client";
+import {redirect} from "next/navigation";
 
 interface FormValues {
   title: string;
@@ -26,6 +29,7 @@ const CreateLinkMutation = gql`
 
 export default function Admin(): React.ReactElement {
   const [createLink, { loading, error }] = useMutation(CreateLinkMutation)
+  const { user } = useUser()
   const {
     register,
     handleSubmit,
@@ -68,6 +72,10 @@ export default function Admin(): React.ReactElement {
     } catch (e) {
       toast.error(`Something went wrong 😥 Please try again -  ${error?.message}`)
     }
+  }
+
+  if (!user) {
+    redirect('/')
   }
 
   return (

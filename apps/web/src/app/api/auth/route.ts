@@ -1,13 +1,5 @@
 import { prisma } from 'database';
-import type { TypeOf } from "zod";
-import { object, string } from "zod";
-
-const HookBodySchema = object({
-    email: string(),
-    secret: string(),
-});
-
-type HookBody = TypeOf<typeof HookBodySchema>;
+import type {HookBody} from "./zod.ts";
 
 export const POST = async (req: Request): Promise<Response> => {
     const { secret, email }: HookBody = await req.json() as HookBody;
